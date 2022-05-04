@@ -1,0 +1,71 @@
+/* Обнуление некоторых стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+::-webkit-scrollbar {
+    width: 0;
+}
+
+/* Переменные */
+:root {
+    /* стандратый отступ для текста */
+    --text-padding: 10px;
+    /* Высота хедера */
+    --header-height: 50px;
+    /* Высота футера */
+    --footer-height: 100px;
+    /* Высчитываем высоту контентной части по формуле HC = VH - (HH + FH), где
+    VH высота viewport
+    HH высота Header
+    FH высота Footer */
+    --content-height: calc(100vh - (var(--header-height) + var(--footer-height)));
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.chat__control {
+    display: flex;
+    height: var(--header-height);
+    padding: var(--text-padding);
+    border: 1px solid red;
+}
+
+.chat__textarea {
+    padding: var(--text-padding);
+    width: 100%;
+    height: var(--footer-height);
+    border: 2px solid green;
+}
+
+.chat__content {
+    display: flex;
+    overflow: hidden;
+    height: var(--content-height);
+}
+
+.chat__users {
+    padding: var(--text-padding);
+    width: 200px;
+    height: 100%;
+    overflow-y: scroll;
+    border: 2px solid orange;
+}
+
+.chat__user-chat {
+    height: 100%;
+    padding: var(--text-padding);
+    width: calc(100vw - 200px);
+    overflow-y: scroll;
+    border: 2px solid rgb(72, 0, 255);
+}
